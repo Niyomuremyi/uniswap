@@ -1,0 +1,139 @@
+/* ============================================================
+   UNISWAP — index.css  (global foundation)
+   Dark indigo→purple theme, glassmorphism, glow & float effects
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* background */
+  --bg-1: #150E2E;
+  --bg-2: #0C0A1A;
+
+  /* brand accents */
+  --violet:  #8B5CF6;
+  --indigo:  #6366F1;
+  --magenta: #D946EF;
+  --cyan:    #22D3EE;
+
+  /* gradients */
+  --grad-primary: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
+  --grad-bright:  linear-gradient(135deg, #D946EF 0%, #8B5CF6 60%, #6366F1 100%);
+
+  /* text */
+  --text:  #ECEAF5;
+  --muted: #A8A2C0;
+
+  /* glass */
+  --glass:      rgba(255, 255, 255, 0.06);
+  --glass-strong: rgba(255, 255, 255, 0.10);
+  --line:       rgba(255, 255, 255, 0.12);
+
+  --radius: 18px;
+  --radius-sm: 12px;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+  --font-head: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg-2);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* fixed gradient + two glowing blobs behind everything */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(900px circle at 15% 20%, rgba(139, 92, 246, 0.25), transparent 45%),
+    radial-gradient(800px circle at 85% 75%, rgba(217, 70, 239, 0.20), transparent 45%),
+    linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 100%);
+}
+
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+
+h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; font-weight: 700; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* ---------- layout helpers ---------- */
+.container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 80px 0; }
+
+/* gradient text for headings */
+.gradient-text {
+  background: var(--grad-bright);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- glass card ---------- */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--font-head); font-weight: 600; font-size: 0.95rem;
+  padding: 12px 26px; border-radius: 50px; border: 1px solid transparent;
+  cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.btn-primary { background: var(--grad-primary); color: #fff; box-shadow: 0 10px 30px rgba(124, 58, 237, 0.45); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(124, 58, 237, 0.6); }
+.btn-ghost { background: var(--glass); color: var(--text); border-color: var(--line); }
+.btn-ghost:hover { background: var(--glass-strong); transform: translateY(-3px); }
+
+/* ---------- form fields ---------- */
+input, select, textarea {
+  width: 100%; font-family: var(--font-body); font-size: 0.95rem; color: var(--text);
+  padding: 12px 16px; background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line); border-radius: var(--radius-sm); outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input::placeholder, textarea::placeholder { color: var(--muted); }
+input:focus, select:focus, textarea:focus {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.18);
+}
+select option { background: var(--bg-1); color: var(--text); }
+label { display: block; font-size: 0.88rem; color: var(--muted); margin-bottom: 6px; font-weight: 500; }
+
+/* ---------- animations ---------- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+.float { animation: float 5s ease-in-out infinite; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.7s ease both; }
+
+/* small helper for muted text */
+.muted { color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
