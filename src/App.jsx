@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import Browse from './pages/Browse';
 
 function ComingSoon() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/browse" element={<Browse />} />
           <Route path="*" element={<ComingSoon />} />
         </Routes>
       </main>
