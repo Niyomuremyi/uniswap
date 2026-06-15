@@ -6,6 +6,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [mode, setMode] = useState('login');   // 'login' or 'register'
   const [error, setError] = useState('');
+  const [showPw, setShowPw] = useState(false);
 
   const [login, setLogin] = useState({ email: '', password: '' });
   const [reg, setReg] = useState({ name: '', email: '', password: '', campus: '', phone: '' });
@@ -63,9 +64,12 @@ export default function Login() {
               <label>Email</label>
               <input type="email" value={login.email} onChange={e => setLogin({ ...login, email: e.target.value })} placeholder="you@example.com" />
             </div>
-            <div className="form-group">
+           <div className="form-group">
               <label>Password</label>
-              <input type="password" value={login.password} onChange={e => setLogin({ ...login, password: e.target.value })} placeholder="Your password" />
+              <div className="pw-wrap">
+                <input type={showPw ? 'text' : 'password'} value={login.password} onChange={e => setLogin({ ...login, password: e.target.value })} placeholder="Your password" />
+                <button type="button" className="pw-eye" onClick={() => setShowPw(!showPw)}>{showPw ? '🙈' : '👁'}</button>
+              </div>
             </div>
             {error && <p className="form-error">{error}</p>}
             <button type="submit" className="btn btn-primary full">Log in</button>
@@ -92,9 +96,12 @@ export default function Login() {
                 <input value={reg.phone} onChange={e => setReg({ ...reg, phone: e.target.value })} placeholder="+86 138 0000 0000" />
               </div>
             </div>
-            <div className="form-group">
+           <div className="form-group">
               <label>Password</label>
-              <input type="password" value={reg.password} onChange={e => setReg({ ...reg, password: e.target.value })} placeholder="Create a password" />
+              <div className="pw-wrap">
+                <input type={showPw ? 'text' : 'password'} value={reg.password} onChange={e => setReg({ ...reg, password: e.target.value })} placeholder="Create a password" />
+                <button type="button" className="pw-eye" onClick={() => setShowPw(!showPw)}>{showPw ? '🙈' : '👁'}</button>
+              </div>
             </div>
             {error && <p className="form-error">{error}</p>}
             <button type="submit" className="btn btn-primary full">Create account</button>
