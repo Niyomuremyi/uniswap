@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Browse from './pages/Browse';
 import SellItem from './pages/SellItem';
+import Login from './pages/Login';
 
 function ComingSoon() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/browse" element={<Browse />} />
           <Route path="/sell" element={<SellItem />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<ComingSoon />} />
         </Routes>
       </main>
