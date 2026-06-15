@@ -6,9 +6,31 @@ const DEFAULTS = {
   Electronics: '/images/default-electronics.png',
 };
 
+// match the item name to one of our real photos
+const KEYWORD_IMAGES = [
+  { words: ['fridge', 'refrigerator'], src: '/images/fridge.webp' },
+  { words: ['rice', 'cooker'],         src: '/images/rice-cooker.jpg' },
+  { words: ['mattress'],               src: '/images/mattress.jpg' },
+  { words: ['cupboard', 'wardrobe', 'closet'], src: '/images/cupboard.jpg' },
+  { words: ['desk', 'table'],          src: '/images/desk.avif' },
+  { words: ['speaker', 'bluetooth'],   src: '/images/speaker.jpg' },
+  { words: ['kettle'],                 src: '/images/kettle.jpg' },
+  { words: ['laptop', 'computer', 'pc'], src: '/images/laptop.jpeg' },
+  { words: ['lamp', 'light'],          src: '/images/lamp.jpg' },
+];
+
+function resolveImage(item) {
+  if (item.image) return item.image;                       // seed items have a set photo
+  const title = (item.title || '').toLowerCase();
+  for (const k of KEYWORD_IMAGES) {
+    if (k.words.some(w => title.includes(w))) return k.src; // name matches a photo
+  }
+  return DEFAULTS[item.category] || DEFAULTS.Furniture;      // otherwise category default
+}
+
 export default function ItemCard({ item, isFav, onFav, extra }) {
   const [showContact, setShowContact] = useState(false);
-  const imgSrc = item.image || DEFAULTS[item.category] || DEFAULTS.Furniture;
+  const imgSrc = resolveImage(item);
   const wa = 'https://wa.me/' + (item.sellerPhone || '').replace(/[^0-9]/g, '');
 
   return (
