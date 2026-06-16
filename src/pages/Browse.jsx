@@ -1,10 +1,12 @@
 import { useState, useMemo } from 'react';
 import { getItems, getCurrentUser, getFavs, toggleFav } from '../lib/storage';
 import ItemCard from '../components/ItemCard';
+import { useT } from '../lib/i18n';
 
 const CATEGORIES = ['All', 'Furniture', 'Appliances', 'Electronics'];
 
 export default function Browse() {
+  const { t } = useT();
   const allItems = getItems();
   const user = getCurrentUser();
 
@@ -14,7 +16,7 @@ export default function Browse() {
   const [favs, setFavs] = useState(user ? getFavs(user.id) : []);
 
   function handleFav(item) {
-    if (!user) { alert('Please log in to save favourites.'); return; }
+    if (!user) { alert(t('browse.loginFav')); return; }
     toggleFav(user.id, item.id);
     setFavs(getFavs(user.id));
   }
@@ -34,30 +36,30 @@ export default function Browse() {
   return (
     <div className="container section">
       <div className="page-head">
-        <h1>Browse <span className="gradient-text">items</span></h1>
-        <p className="muted">Find what you need from fellow students</p>
+        <h1>{t('browse.title1')} <span className="gradient-text">{t('browse.title2')}</span></h1>
+        <p className="muted">{t('browse.sub')}</p>
       </div>
 
       <div className="browse-toolbar glass">
-        <input className="browse-search" placeholder="Search items..."
+        <input className="browse-search" placeholder={t('browse.searchPlaceholder')}
           value={search} onChange={e => setSearch(e.target.value)} />
         <div className="cat-pills">
           {CATEGORIES.map(c => (
             <button key={c} className={'pill' + (category === c ? ' active' : '')}
-              onClick={() => setCategory(c)}>{c}</button>
+              onClick={() => setCategory(c)}>{t('cat.' + c)}</button>
           ))}
         </div>
         <select value={sort} onChange={e => setSort(e.target.value)} className="browse-sort">
-          <option value="newest">Newest</option>
-          <option value="price-low">Price: Low to High</option>
-          <option value="price-high">Price: High to Low</option>
+          <option value="newest">{t('browse.sortNewest')}</option>
+          <option value="price-low">{t('browse.sortLow')}</option>
+          <option value="price-high">{t('browse.sortHigh')}</option>
         </select>
       </div>
 
-      <p className="result-count muted">{items.length} item{items.length !== 1 ? 's' : ''} found</p>
+      <p className="result-count muted">{items.length} {t('browse.itemsFound')}</p>
 
       {items.length === 0 ? (
-        <p className="empty-state muted">No items match your search.</p>
+        <p className="empty-state muted">{t('browse.noResults')}</p>
       ) : (
         <div className="grid-4">
           {items.map(item => (

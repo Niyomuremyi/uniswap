@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useT } from '../lib/i18n';
 
 const DEFAULTS = {
   Furniture:   '/images/default-furniture.jpg',
@@ -6,7 +7,6 @@ const DEFAULTS = {
   Electronics: '/images/default-electronics.png',
 };
 
-// match the item name to one of our real photos
 const KEYWORD_IMAGES = [
   { words: ['fridge', 'refrigerator'], src: '/images/fridge.webp' },
   { words: ['rice', 'cooker'],         src: '/images/rice-cooker.jpg' },
@@ -20,15 +20,16 @@ const KEYWORD_IMAGES = [
 ];
 
 function resolveImage(item) {
-  if (item.image) return item.image;                       // seed items have a set photo
+  if (item.image) return item.image;
   const title = (item.title || '').toLowerCase();
   for (const k of KEYWORD_IMAGES) {
-    if (k.words.some(w => title.includes(w))) return k.src; // name matches a photo
+    if (k.words.some(w => title.includes(w))) return k.src;
   }
-  return DEFAULTS[item.category] || DEFAULTS.Furniture;      // otherwise category default
+  return DEFAULTS[item.category] || DEFAULTS.Furniture;
 }
 
 export default function ItemCard({ item, isFav, onFav, extra }) {
+  const { t } = useT();
   const [showContact, setShowContact] = useState(false);
   const imgSrc = resolveImage(item);
   const wa = 'https://wa.me/' + (item.sellerPhone || '').replace(/[^0-9]/g, '');
@@ -62,11 +63,11 @@ export default function ItemCard({ item, isFav, onFav, extra }) {
         {showContact ? (
           <div className="item-contact">
             <p>{item.sellerName} — {item.sellerPhone}</p>
-            <a className="btn btn-primary" href={wa} target="_blank" rel="noreferrer">Open WhatsApp</a>
+            <a className="btn btn-primary" href={wa} target="_blank" rel="noreferrer">{t('common.openWhatsApp')}</a>
           </div>
         ) : (
           <button className="btn btn-primary item-contact-btn" onClick={() => setShowContact(true)}>
-            Contact seller
+            {t('common.contactSeller')}
           </button>
         )}
 
