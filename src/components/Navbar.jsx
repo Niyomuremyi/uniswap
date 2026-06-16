@@ -1,31 +1,25 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { getCurrentUser, logout } from '../lib/storage';
+import { useT } from '../lib/i18n';
 
 export default function Navbar() {
+  const { t, lang, toggleLang } = useT();
   const [user, setUser] = useState(getCurrentUser());
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // refresh login state whenever the page changes
-  useEffect(() => {
-    setUser(getCurrentUser());
-    setOpen(false);
-  }, [location]);
+  useEffect(() => { setUser(getCurrentUser()); setOpen(false); }, [location]);
 
-  function handleLogout() {
-    logout();
-    setUser(null);
-    navigate('/');
-  }
+  function handleLogout() { logout(); setUser(null); navigate('/'); }
 
   const links = [
-    { to: '/', label: 'Home', end: true },
-    { to: '/browse', label: 'Browse' },
-    { to: '/sell', label: 'Sell' },
-    { to: '/partners', label: 'Partners' },
-    { to: '/about', label: 'About' },
+    { to: '/', label: t('nav.home'), end: true },
+    { to: '/browse', label: t('nav.browse') },
+    { to: '/sell', label: t('nav.sell') },
+    { to: '/partners', label: t('nav.partners') },
+    { to: '/about', label: t('nav.about') },
   ];
 
   return (
@@ -50,13 +44,14 @@ export default function Navbar() {
           </ul>
 
           <div className="nav-actions">
+            <button className="lang-toggle" onClick={toggleLang}>{lang === 'en' ? '中文' : 'EN'}</button>
             {user ? (
               <>
-                <NavLink to="/dashboard" className="btn btn-ghost">My Dashboard</NavLink>
-                <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
+                <NavLink to="/dashboard" className="btn btn-ghost">{t('nav.dashboard')}</NavLink>
+                <button className="btn btn-primary" onClick={handleLogout}>{t('nav.logout')}</button>
               </>
             ) : (
-              <NavLink to="/login" className="btn btn-primary">Login / Register</NavLink>
+              <NavLink to="/login" className="btn btn-primary">{t('nav.login')}</NavLink>
             )}
           </div>
         </div>

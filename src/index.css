@@ -1392,3 +1392,6 @@ label {
     grid-template-columns: 1fr;
   }
 }
+
+.lang-toggle { padding: 8px 14px; border-radius: 50px; border: 1px solid var(--line); background: var(--glass); color: var(--text); font-family: var(--font-head); font-weight: 600; font-size: 0.82rem; cursor: pointer; transition: background .2s; }
+.lang-toggle:hover { background: var(--glass-strong); }
