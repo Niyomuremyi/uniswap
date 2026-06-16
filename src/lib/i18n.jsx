@@ -18,6 +18,12 @@ const translations = {
 
     'cat.All': 'All', 'cat.Furniture': 'Furniture', 'cat.Appliances': 'Appliances', 'cat.Electronics': 'Electronics',
 
+    'cond.Like new': 'Like new', 'cond.Good': 'Good', 'cond.Fair': 'Fair',
+    'campus.Main Campus': 'Main Campus', 'campus.East Campus': 'East Campus', 'campus.South Campus': 'South Campus',
+    'home.heroCard1Title': 'Mini Fridge', 'home.heroCard1Meta': 'Good · Main Campus',
+    'home.heroCard2Title': 'Used Laptop', 'home.heroCard2Meta': 'Good · Main Campus',
+    'home.heroCard3Title': 'Bluetooth Speaker', 'home.heroCard3Meta': 'Like new · South Campus',
+
     'home.heroTag': '♻ Student Marketplace',
     'home.heroTitle1': 'Buy & sell student', 'home.heroTitle2': 'essentials on campus',
     'home.heroText': "Don't waste money buying new or throw good things away. Sell what you don't need, find what you do — right here with fellow students. Plus, find a language partner to learn together.",
@@ -107,6 +113,12 @@ const translations = {
     'common.teaches': '教授', 'common.wantsToLearn': '想学', 'common.delete': '删除', 'common.cancel': '取消',
 
     'cat.All': '全部', 'cat.Furniture': '家具', 'cat.Appliances': '电器', 'cat.Electronics': '电子产品',
+
+    'cond.Like new': '几乎全新', 'cond.Good': '良好', 'cond.Fair': '一般',
+    'campus.Main Campus': '主校区', 'campus.East Campus': '东校区', 'campus.South Campus': '南校区',
+    'home.heroCard1Title': '迷你冰箱', 'home.heroCard1Meta': '良好 · 主校区',
+    'home.heroCard2Title': '二手笔记本电脑', 'home.heroCard2Meta': '良好 · 主校区',
+    'home.heroCard3Title': '蓝牙音箱', 'home.heroCard3Meta': '几乎全新 · 南校区',
 
     'home.heroTag': '♻ 学生二手市场',
     'home.heroTitle1': '买卖学生', 'home.heroTitle2': '校园生活必需品',

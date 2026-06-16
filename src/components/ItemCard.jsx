@@ -29,16 +29,23 @@ function resolveImage(item) {
 }
 
 export default function ItemCard({ item, isFav, onFav, extra }) {
-  const { t } = useT();
+  const { t, lang } = useT();
   const [showContact, setShowContact] = useState(false);
   const imgSrc = resolveImage(item);
   const wa = 'https://wa.me/' + (item.sellerPhone || '').replace(/[^0-9]/g, '');
 
+  // language-aware fields (fall back to what was typed)
+  const title = (lang === 'zh' && item.titleZh) ? item.titleZh : item.title;
+  const desc  = (lang === 'zh' && item.descZh) ? item.descZh : item.description;
+  const tData = (prefix, val) => { const k = prefix + '.' + val; const r = t(k); return r === k ? val : r; };
+  const condition = tData('cond', item.condition);
+  const campus = tData('campus', item.campus);
+
   return (
     <div className="item-card glass">
       <div className="item-image">
-        <img className="item-photo" src={imgSrc} alt={item.title} />
-        <span className="item-cat">{item.category}</span>
+        <img className="item-photo" src={imgSrc} alt={title} />
+        <span className="item-cat">{t('cat.' + item.category)}</span>
         {onFav && (
           <button className={'fav-btn' + (isFav ? ' active' : '')}
             onClick={() => onFav(item)} aria-label="Favourite">
@@ -49,16 +56,16 @@ export default function ItemCard({ item, isFav, onFav, extra }) {
 
       <div className="item-body">
         <div className="item-top">
-          <h3>{item.title}</h3>
+          <h3>{title}</h3>
           <span className="item-price">¥{item.price}</span>
         </div>
 
         <div className="item-meta">
-          <span className="chip">{item.condition}</span>
-          <span className="chip">{item.campus}</span>
+          <span className="chip">{condition}</span>
+          <span className="chip">{campus}</span>
         </div>
 
-        <p className="item-desc muted">{item.description}</p>
+        <p className="item-desc muted">{desc}</p>
 
         {showContact ? (
           <div className="item-contact">

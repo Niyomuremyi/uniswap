@@ -28,22 +28,22 @@ export default function Home() {
             <div className="hero-glow"></div>
             <div className="mini-card glass float" style={{ animationDelay: '0s' }}>
               <div className="mini-img"><img src="/images/fridge.webp" alt="" /></div>
-              <h4>Mini Fridge</h4>
+              <h4>{t('home.heroCard1Title')}</h4>
               <span className="mini-price">¥350</span>
-              <p className="mini-meta">Good · Main Campus</p>
+              <p className="mini-meta">{t('home.heroCard1Meta')}</p>
             </div>
             <div className="mini-card glass float mini-card-2" style={{ animationDelay: '0.8s' }}>
               <span className="mini-hot">🔥 HOT</span>
               <div className="mini-img"><img src="/images/laptop.jpeg" alt="" /></div>
-              <h4>Used Laptop</h4>
+              <h4>{t('home.heroCard2Title')}</h4>
               <span className="mini-price">¥1,500</span>
-              <p className="mini-meta">Good · Main Campus</p>
+              <p className="mini-meta">{t('home.heroCard2Meta')}</p>
             </div>
             <div className="mini-card glass float mini-card-3" style={{ animationDelay: '1.4s' }}>
               <div className="mini-img"><img src="/images/speaker.jpg" alt="" /></div>
-              <h4>Bluetooth Speaker</h4>
+              <h4>{t('home.heroCard3Title')}</h4>
               <span className="mini-price">¥180</span>
-              <p className="mini-meta">Like new · South Campus</p>
+              <p className="mini-meta">{t('home.heroCard3Meta')}</p>
             </div>
           </div>
         </div>
