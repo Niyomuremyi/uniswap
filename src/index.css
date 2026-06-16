@@ -337,3 +337,4 @@ label { display: block; font-size: 0.88rem; color: var(--muted); margin-bottom: 
 
 @media (max-width: 900px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .grid-3 { grid-template-columns: 1fr; } }
+.partner-post { margin-bottom: 28px; }
