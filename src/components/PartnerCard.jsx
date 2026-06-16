@@ -4,8 +4,6 @@ import { useT } from '../lib/i18n';
 export default function PartnerCard({ partner, extra }) {
   const { t, lang } = useT();
   const [show, setShow] = useState(false);
-  const digits = (partner.contact || '').replace(/[^0-9]/g, '');
-  const wa = 'https://wa.me/' + digits;
   const note = (lang === 'zh' && partner.noteZh) ? partner.noteZh : partner.note;
 
   return (
@@ -30,8 +28,7 @@ export default function PartnerCard({ partner, extra }) {
 
       {show ? (
         <div className="partner-contact">
-          <p>{partner.contact}</p>
-          {digits && <a className="btn btn-primary" href={wa} target="_blank" rel="noreferrer">{t('common.openWhatsApp')}</a>}
+          <p className="contact-phone">{partner.contact}</p>
         </div>
       ) : (
         <button className="btn btn-primary partner-contact-btn" onClick={() => setShow(true)}>

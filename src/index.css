@@ -1396,3 +1396,5 @@ label {
 .lang-toggle:hover { background: var(--glass-strong); }
 
 .partner-login-hint { margin-bottom: 28px; }
+
+.contact-phone { text-align: center; font-family: var(--font-head); font-weight: 600; padding: 8px 0; letter-spacing: 0.5px; }

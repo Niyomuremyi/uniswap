@@ -32,9 +32,7 @@ export default function ItemCard({ item, isFav, onFav, extra }) {
   const { t, lang } = useT();
   const [showContact, setShowContact] = useState(false);
   const imgSrc = resolveImage(item);
-  const wa = 'https://wa.me/' + (item.sellerPhone || '').replace(/[^0-9]/g, '');
 
-  // language-aware fields (fall back to what was typed)
   const title = (lang === 'zh' && item.titleZh) ? item.titleZh : item.title;
   const desc  = (lang === 'zh' && item.descZh) ? item.descZh : item.description;
   const tData = (prefix, val) => { const k = prefix + '.' + val; const r = t(k); return r === k ? val : r; };
@@ -69,8 +67,7 @@ export default function ItemCard({ item, isFav, onFav, extra }) {
 
         {showContact ? (
           <div className="item-contact">
-            <p>{item.sellerName} — {item.sellerPhone}</p>
-            <a className="btn btn-primary" href={wa} target="_blank" rel="noreferrer">{t('common.openWhatsApp')}</a>
+            <p className="contact-phone">{item.sellerPhone}</p>
           </div>
         ) : (
           <button className="btn btn-primary item-contact-btn" onClick={() => setShowContact(true)}>
