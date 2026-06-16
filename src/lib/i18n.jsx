@@ -15,6 +15,8 @@ const translations = {
 
     'common.contactSeller': 'Contact seller', 'common.openWhatsApp': 'Open WhatsApp', 'common.connect': 'Connect',
     'common.teaches': 'Teaches', 'common.wantsToLearn': 'Wants to learn', 'common.delete': 'Delete', 'common.cancel': 'Cancel',
+    
+    'common.languagePartner': 'Language Partner',
 
     'cat.All': 'All', 'cat.Furniture': 'Furniture', 'cat.Appliances': 'Appliances', 'cat.Electronics': 'Electronics',
 
@@ -112,6 +114,7 @@ const translations = {
 
     'common.contactSeller': '联系卖家', 'common.openWhatsApp': '打开 WhatsApp', 'common.connect': '联系',
     'common.teaches': '教授', 'common.wantsToLearn': '想学', 'common.delete': '删除', 'common.cancel': '取消',
+    'common.languagePartner': '语言伙伴',
 
     'cat.All': '全部', 'cat.Furniture': '家具', 'cat.Appliances': '电器', 'cat.Electronics': '电子产品',
 

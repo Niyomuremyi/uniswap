@@ -21,11 +21,12 @@ export const SEED_ITEMS = [
 
 /* ---------- sample language partners ---------- */
 export const SEED_PARTNERS = [
-  { id: 'p-wei',   name: 'Wei Chen',     teaches: 'Chinese', learns: 'English', contact: '+86 138 0000 1111', note: 'Free evenings & weekends. Happy to help with daily Chinese.', ownerId: 'seed', createdAt: Date.now() - 100000 },
-  { id: 'p-sara',  name: 'Sara Johnson', teaches: 'English', learns: 'Chinese', contact: '+86 138 0000 2222', note: 'Native English speaker. Looking to practise Chinese in exchange.', ownerId: 'seed', createdAt: Date.now() - 200000 },
-  { id: 'p-ahmed', name: 'Ahmed Ali',    teaches: 'Arabic',  learns: 'Chinese', contact: '+86 138 0000 3333', note: 'Can teach Arabic basics. Weekday afternoons.', ownerId: 'seed', createdAt: Date.now() - 300000 },
-  { id: 'p-limei', name: 'Li Mei',       teaches: 'Chinese', learns: 'French',  contact: '+86 138 0000 4444', note: 'Patient tutor. Lets meet at the library or online.', ownerId: 'seed', createdAt: Date.now() - 400000 },
-  { id: 'p-david', name: 'David Kim',    teaches: 'Korean',  learns: 'Chinese', contact: '+86 138 0000 5555', note: 'K-drama fan? Lets learn together. Flexible times.', ownerId: 'seed', createdAt: Date.now() - 500000 },
+   { id: 'p-wei',   name: 'Wei Chen',     teaches: 'Chinese', learns: 'English', contact: '+86 138 0000 1111', note: 'Free evenings & weekends. Happy to help with daily Chinese.', noteZh: '晚上和周末有空。乐意帮助练习日常中文。', ownerId: 'seed', createdAt: Date.now() - 100000 },
+  { id: 'p-sara',  name: 'Sara Johnson', teaches: 'English', learns: 'Chinese', contact: '+86 138 0000 2222', note: 'Native English speaker. Looking to practise Chinese in exchange.', noteZh: '英语母语者。希望以此交换练习中文。', ownerId: 'seed', createdAt: Date.now() - 200000 },
+  { id: 'p-ahmed', name: 'Ahmed Ali',    teaches: 'Arabic',  learns: 'Chinese', contact: '+86 138 0000 3333', note: 'Can teach Arabic basics. Weekday afternoons.', noteZh: '可以教阿拉伯语基础。工作日下午有空。', ownerId: 'seed', createdAt: Date.now() - 300000 },
+  { id: 'p-limei', name: 'Li Mei',       teaches: 'Chinese', learns: 'French',  contact: '+86 138 0000 4444', note: 'Patient tutor. Lets meet at the library or online.', noteZh: '有耐心的辅导者。可以在图书馆或线上见面。', ownerId: 'seed', createdAt: Date.now() - 400000 },
+  { id: 'p-david', name: 'David Kim',    teaches: 'Korean',  learns: 'Chinese', contact: '+86 138 0000 5555', note: 'K-drama fan? Lets learn together. Flexible times.', noteZh: '喜欢韩剧吗？一起学习吧。时间灵活。', ownerId: 'seed', createdAt: Date.now() - 500000 },
+
 ];
 
 /* ---------- load the samples once (only if storage is empty) ---------- */
