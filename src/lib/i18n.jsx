@@ -96,6 +96,7 @@ const translations = {
     'about.val3Title': 'Connect students', 'about.val3Text': 'Trade quickly and safely with people on your own campus.',
     'about.val4Title': 'Learn together', 'about.val4Text': 'Find a language partner to practise with and teach your own language.',
     'about.teamTitle1': 'Our', 'about.teamTitle2': 'team', 'about.teamSub': 'The students behind Uniswap',
+    'about.role1': 'Idea & Research', 'about.role2': 'Design', 'about.role3': 'Development',
     'about.ctaTitle1': 'Join your campus', 'about.ctaTitle2': 'marketplace', 'about.ctaText': 'Create an account and start swapping today.', 'about.getStarted': 'Get started',
   },
 
@@ -192,6 +193,7 @@ const translations = {
     'about.val3Title': '连接学生', 'about.val3Text': '与你同校的人快速、安全地交易。',
     'about.val4Title': '共同学习', 'about.val4Text': '找到语言伙伴一起练习，并教授你自己的语言。',
     'about.teamTitle1': '我们的', 'about.teamTitle2': '团队', 'about.teamSub': 'Uniswap 背后的学生们',
+    'about.role1': '创意与调研', 'about.role2': '设计', 'about.role3': '开发',
     'about.ctaTitle1': '加入你的校园', 'about.ctaTitle2': '市场', 'about.ctaText': '创建账户，今天就开始交换。', 'about.getStarted': '开始使用',
   },
 };
