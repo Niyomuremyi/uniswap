@@ -6,6 +6,8 @@ import Browse from './pages/Browse';
 import SellItem from './pages/SellItem';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import LanguagePartners from './pages/LanguagePartners';
+
 
 function ComingSoon() {
   return (
@@ -27,6 +29,7 @@ export default function App() {
           <Route path="/sell" element={<SellItem />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/partners" element={<LanguagePartners />} />
           <Route path="*" element={<ComingSoon />} />
         </Routes>
       </main>
