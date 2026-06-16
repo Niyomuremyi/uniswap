@@ -8,9 +8,9 @@ const VALUES = [
 ];
 
 const TEAM = [
-  { name: 'Team Member 1', role: 'Idea & Research' },
-  { name: 'Team Member 2', role: 'Design' },
-  { name: 'Team Member 3', role: 'Development' },
+  { name: 'ALLY SUHAYMA SULEIMAN', role: 'Idea & Research' },
+  { name: 'HORORO DAYLOVE', role: 'Design' },
+  { name: 'NIYOMUREMYI ELISSA', role: 'Development' },
 ];
 
 export default function About() {
