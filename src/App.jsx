@@ -7,6 +7,7 @@ import SellItem from './pages/SellItem';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import LanguagePartners from './pages/LanguagePartners';
+import About from './pages/About';
 
 
 function ComingSoon() {
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/partners" element={<LanguagePartners />} />
+          <Route path="/about" element={<About />} />
           <Route path="*" element={<ComingSoon />} />
         </Routes>
       </main>
