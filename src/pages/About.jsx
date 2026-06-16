@@ -1,57 +1,60 @@
 import { Link } from 'react-router-dom';
-
-const VALUES = [
-  { title: 'Save money',       text: 'Buy quality second-hand from students instead of paying full price for new.' },
-  { title: 'Reduce waste',     text: 'Good items get reused instead of thrown away when students graduate.' },
-  { title: 'Connect students', text: 'Trade quickly and safely with people on your own campus.' },
-  { title: 'Learn together',   text: 'Find a language partner to practise with and teach your own language.' },
-];
+import { useT } from '../lib/i18n';
 
 const TEAM = [
   { name: 'ALLY SUHAYMA SULEIMAN', role: 'Idea & Research' },
-  { name: 'HORORO DAYLOVE', role: 'Design' },
+  { name: 'HORORO DAY LOVE', role: 'Design' },
   { name: 'NIYOMUREMYI ELISSA', role: 'Development' },
 ];
 
 export default function About() {
+  const { t } = useT();
+
+  const VALUES = [
+    { title: t('about.val1Title'), text: t('about.val1Text') },
+    { title: t('about.val2Title'), text: t('about.val2Text') },
+    { title: t('about.val3Title'), text: t('about.val3Text') },
+    { title: t('about.val4Title'), text: t('about.val4Text') },
+  ];
+
   return (
     <div className="container section">
       <div className="page-head fade-up">
-        <h1>About <span className="gradient-text">Uniswap</span></h1>
-        <p className="muted">A student marketplace built to save money, cut waste, and bring campus together</p>
+        <h1>{t('about.title1')} <span className="gradient-text">{t('about.title2')}</span></h1>
+        <p className="muted">{t('about.sub')}</p>
       </div>
 
       <div className="about-2col">
         <div className="glass about-block">
-          <h2>The <span className="gradient-text">problem</span></h2>
-          <p className="muted">Every year, students arrive on campus and buy everything new — mattresses, fridges, rice cookers, cupboards, and more. When they graduate, those same items are often thrown away or wasted. New students keep buying new, even though good items sit unused all around them. On top of that, international students often struggle to learn the local language because they have no one to practise with.</p>
+          <h2>{t('about.problemA')}<span className="gradient-text">{t('about.problemB')}</span></h2>
+          <p className="muted">{t('about.problemText')}</p>
         </div>
         <div className="glass about-block">
-          <h2>Our <span className="gradient-text">solution</span></h2>
-          <p className="muted">Uniswap connects students so they can buy and sell their essentials directly — quickly and mostly within the same campus. Sellers earn from things they no longer need, buyers save money, and far less goes to waste. We also help students find language partners, so learning a new language becomes part of campus life.</p>
+          <h2>{t('about.solutionA')}<span className="gradient-text">{t('about.solutionB')}</span></h2>
+          <p className="muted">{t('about.solutionText')}</p>
         </div>
       </div>
 
       <div className="section-head" style={{ marginTop: '60px' }}>
-        <h2>What Uniswap <span className="gradient-text">offers</span></h2>
+        <h2>{t('about.offersTitle1')} <span className="gradient-text">{t('about.offersTitle2')}</span></h2>
       </div>
       <div className="about-features">
         <div className="glass feature-box">
           <div className="feature-icon">B</div>
-          <h3>Buy &amp; Sell</h3>
-          <p className="muted">Post furniture, appliances, and electronics in seconds. Buyers contact you directly on WhatsApp. Simple, fast, and student-to-student.</p>
-          <Link to="/browse" className="btn btn-ghost">Browse items</Link>
+          <h3>{t('about.buyTitle')}</h3>
+          <p className="muted">{t('about.buyText')}</p>
+          <Link to="/browse" className="btn btn-ghost">{t('about.browseBtn')}</Link>
         </div>
         <div className="glass feature-box">
           <div className="feature-icon">L</div>
-          <h3>Language Partners</h3>
-          <p className="muted">Offer the language you speak and find someone to help you learn theirs. A friendly exchange that makes campus life easier.</p>
-          <Link to="/partners" className="btn btn-ghost">Find a partner</Link>
+          <h3>{t('about.partnerTitle')}</h3>
+          <p className="muted">{t('about.partnerText')}</p>
+          <Link to="/partners" className="btn btn-ghost">{t('about.findPartner')}</Link>
         </div>
       </div>
 
       <div className="section-head" style={{ marginTop: '60px' }}>
-        <h2>Why it <span className="gradient-text">matters</span></h2>
+        <h2>{t('about.whyTitle1')} <span className="gradient-text">{t('about.whyTitle2')}</span></h2>
       </div>
       <div className="grid-4">
         {VALUES.map(v => (
@@ -64,8 +67,8 @@ export default function About() {
       </div>
 
       <div className="section-head" style={{ marginTop: '60px' }}>
-        <h2>Our <span className="gradient-text">team</span></h2>
-        <p className="muted">The students behind Uniswap</p>
+        <h2>{t('about.teamTitle1')} <span className="gradient-text">{t('about.teamTitle2')}</span></h2>
+        <p className="muted">{t('about.teamSub')}</p>
       </div>
       <div className="grid-3">
         {TEAM.map(m => (
@@ -80,10 +83,10 @@ export default function About() {
       <section className="section">
         <div className="cta-banner glass">
           <div>
-            <h2>Join your campus <span className="gradient-text">marketplace</span></h2>
-            <p className="muted">Create an account and start swapping today.</p>
+            <h2>{t('about.ctaTitle1')} <span className="gradient-text">{t('about.ctaTitle2')}</span></h2>
+            <p className="muted">{t('about.ctaText')}</p>
           </div>
-          <Link to="/login" className="btn btn-primary">Get started</Link>
+          <Link to="/login" className="btn btn-primary">{t('about.getStarted')}</Link>
         </div>
       </section>
     </div>
