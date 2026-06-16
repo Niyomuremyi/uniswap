@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useT } from '../lib/i18n';
 
 export default function PartnerCard({ partner, extra }) {
+  const { t } = useT();
   const [show, setShow] = useState(false);
   const digits = (partner.contact || '').replace(/[^0-9]/g, '');
   const wa = 'https://wa.me/' + digits;
@@ -15,12 +17,12 @@ export default function PartnerCard({ partner, extra }) {
 
       <div className="partner-langs">
         <div className="lang-badge teach">
-          <span className="lang-label">Teaches</span>
+          <span className="lang-label">{t('common.teaches')}</span>
           <span className="lang-value">{partner.teaches}</span>
         </div>
         <div className="lang-arrow">⇄</div>
         <div className="lang-badge learn">
-          <span className="lang-label">Wants to learn</span>
+          <span className="lang-label">{t('common.wantsToLearn')}</span>
           <span className="lang-value">{partner.learns}</span>
         </div>
       </div>
@@ -30,11 +32,11 @@ export default function PartnerCard({ partner, extra }) {
       {show ? (
         <div className="partner-contact">
           <p>{partner.contact}</p>
-          {digits && <a className="btn btn-primary" href={wa} target="_blank" rel="noreferrer">Open WhatsApp</a>}
+          {digits && <a className="btn btn-primary" href={wa} target="_blank" rel="noreferrer">{t('common.openWhatsApp')}</a>}
         </div>
       ) : (
         <button className="btn btn-primary partner-contact-btn" onClick={() => setShow(true)}>
-          Connect
+          {t('common.connect')}
         </button>
       )}
 

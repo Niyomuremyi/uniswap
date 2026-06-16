@@ -1,46 +1,39 @@
-import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useT } from '../lib/i18n';
 
-export default function PartnerCard({ partner, extra }) {
+export default function Footer() {
   const { t } = useT();
-  const [show, setShow] = useState(false);
-  const digits = (partner.contact || '').replace(/[^0-9]/g, '');
-  const wa = 'https://wa.me/' + digits;
-  const initial = (partner.name || '?').trim().charAt(0).toUpperCase();
-
   return (
-    <div className="partner-card glass">
-      <div className="partner-head">
-        <div className="partner-avatar">{initial}</div>
-        <h3>{partner.name}</h3>
+    <footer className="footer">
+      <div className="container footer-inner">
+        <div className="footer-brand">
+          <div className="brand">Uni<span className="gradient-text">swap</span></div>
+          <p className="muted">{t('footer.tagline')}</p>
+        </div>
+
+        <div className="footer-col">
+          <h4>{t('footer.explore')}</h4>
+          <ul>
+            <li><NavLink to="/browse">{t('footer.browseItems')}</NavLink></li>
+            <li><NavLink to="/sell">{t('footer.sellItem')}</NavLink></li>
+            <li><NavLink to="/partners">{t('footer.partners')}</NavLink></li>
+            <li><NavLink to="/about">{t('footer.about')}</NavLink></li>
+          </ul>
+        </div>
+
+        <div className="footer-col">
+          <h4>{t('footer.account')}</h4>
+          <ul>
+            <li><NavLink to="/login">{t('footer.login')}</NavLink></li>
+            <li><NavLink to="/dashboard">{t('footer.dashboard')}</NavLink></li>
+          </ul>
+        </div>
       </div>
 
-      <div className="partner-langs">
-        <div className="lang-badge teach">
-          <span className="lang-label">{t('common.teaches')}</span>
-          <span className="lang-value">{partner.teaches}</span>
-        </div>
-        <div className="lang-arrow">⇄</div>
-        <div className="lang-badge learn">
-          <span className="lang-label">{t('common.wantsToLearn')}</span>
-          <span className="lang-value">{partner.learns}</span>
-        </div>
+      <div className="footer-bottom container">
+        <span>{t('footer.copyright')}</span>
+        <span>{t('footer.madeBy')}</span>
       </div>
-
-      {partner.note && <p className="partner-note muted">{partner.note}</p>}
-
-      {show ? (
-        <div className="partner-contact">
-          <p>{partner.contact}</p>
-          {digits && <a className="btn btn-primary" href={wa} target="_blank" rel="noreferrer">{t('common.openWhatsApp')}</a>}
-        </div>
-      ) : (
-        <button className="btn btn-primary partner-contact-btn" onClick={() => setShow(true)}>
-          {t('common.connect')}
-        </button>
-      )}
-
-      {extra}
-    </div>
+    </footer>
   );
 }
