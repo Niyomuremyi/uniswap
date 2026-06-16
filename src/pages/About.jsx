@@ -2,9 +2,7 @@ import { Link } from 'react-router-dom';
 import { useT } from '../lib/i18n';
 
 const TEAM = [
-  { name: 'ALLY SUHAYMA SULEIMAN', roleKey: 'about.role1' },
-  { name: 'HORORO DAY LOVE', roleKey: 'about.role2' },
-  { name: 'NIYOMUREMYI ELISSA', roleKey: 'about.role3' },
+ 'about.role1', 'about.role2', 'about.role3'
 ];
 
 export default function About() {
@@ -71,11 +69,10 @@ export default function About() {
         <p className="muted">{t('about.teamSub')}</p>
       </div>
       <div className="grid-3">
-        {TEAM.map(m => (
-          <div key={m.name} className="glass team-box">
-            <div className="team-avatar">{m.name.charAt(0)}</div>
-            <h4>{m.name}</h4>
-            <p className="muted">{t(m.roleKey)}</p>
+       {TEAM.map((roleKey, i) => (
+          <div key={i} className="glass team-box">
+            <div className="team-avatar">{i + 1}</div>
+            <h4>{t(roleKey)}</h4>
           </div>
         ))}
       </div>
