@@ -18,9 +18,9 @@ export default function LanguagePartners() {
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
     return partners.filter(p =>
-      p.teaches.toLowerCase().includes(q) ||
-      p.learns.toLowerCase().includes(q) ||
-      p.name.toLowerCase().includes(q)
+      (p.teaches || '').toLowerCase().includes(q) ||
+      (p.learns || '').toLowerCase().includes(q) ||
+      (p.name || '').toLowerCase().includes(q)
     );
   }, [partners, search, tick]);
 
